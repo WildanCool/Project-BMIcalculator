@@ -27,13 +27,20 @@ function OutputHal() {
   }
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <h2>Hasil BMI</h2>
-      <p><strong>Berat:</strong> {berat} kg</p>
-      <p><strong>Tinggi:</strong> {tinggi} cm</p>
-      <p><strong>BMI:</strong> {bmi}</p>
-      <p><strong>Kategori:</strong> {kategori}</p>
-      <button onClick={() => navigate("/")}>Hitung Ulang</button>
+    <div className="bg-white shadow-md rounded-xl p-8 w-full max-w-md">
+      <h2 className="text-2xl font-bold mb-6 text-center text-green-600">Hasil BMI Anda</h2>
+      <div className="space-y-2 text-lg">
+        <p><strong>Berat Badan:</strong> {berat} kg</p>
+        <p><strong>Tinggi Badan:</strong> {tinggi} cm</p>
+        <p><strong>BMI:</strong> {bmi}</p>
+        <p><strong>Kategori:</strong> <span className="font-semibold text-blue-600">{kategori}</span></p>
+      </div>
+      <button
+        onClick={() => navigate("/")}
+        className="mt-6 w-full bg-gray-700 text-white py-2 rounded-lg hover:bg-gray-800 transition"
+      >
+        Hitung Ulang
+      </button>
     </div>
   );
 }

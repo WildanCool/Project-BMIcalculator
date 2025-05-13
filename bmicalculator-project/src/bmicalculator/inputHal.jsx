@@ -9,12 +9,10 @@ function InputHal() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (!berat || !tinggi) {
       alert("Mohon isi berat dan tinggi badan.");
       return;
     }
-
     navigate("/output", {
       state: {
         berat: parseFloat(berat),
@@ -24,28 +22,35 @@ function InputHal() {
   };
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <h2>Input Berat dan Tinggi Badan</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="bg-white shadow-md rounded-xl p-8 w-full max-w-md">
+      <h2 className="text-2xl font-bold mb-6 text-center text-blue-600">BMI Calculator</h2>
+      <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label>Berat Badan (kg): </label>
+          <label className="block text-sm font-medium mb-1">Berat Badan (kg):</label>
           <input
             type="number"
             value={berat}
             onChange={(e) => setBerat(e.target.value)}
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
         </div>
         <div>
-          <label>Tinggi Badan (cm): </label>
+          <label className="block text-sm font-medium mb-1">Tinggi Badan (cm):</label>
           <input
             type="number"
             value={tinggi}
             onChange={(e) => setTinggi(e.target.value)}
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
         </div>
-        <button type="submit">Hitung BMI</button>
+        <button
+          type="submit"
+          className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+        >
+          Hitung BMI
+        </button>
       </form>
     </div>
   );
